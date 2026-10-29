@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101820" />
+    <title>Automóviles S.A. | Portal Corporativo</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <section id="loginScreen" class="login-screen">
+      <div class="login-photo">
+        <div class="login-overlay"></div>
+        <div class="login-brand">
+          <div class="brand-emblem"><i class="fa-solid fa-car-side"></i></div>
+          <div>
+            <h1>AUTOMÓVILES S.A.</h1>
+            <span>PORTAL CORPORATIVO</span>
+          </div>
+        </div>
+
+        <div class="login-message">
+          <span class="eyebrow">BIENVENIDO AL PORTAL</span>
+          <h2>Tu trabajo mueve<br />nuestro futuro.</h2>
+          <p>
+            Conectamos áreas, mejoramos la comunicación y coordinamos cada etapa
+            de la atención al cliente.
+          </p>
+          <div class="login-benefits">
+            <span
+              ><i class="fa-solid fa-circle-check"></i> Acceso a las áreas de
+              trabajo</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-check"></i> Coordinación entre
+              equipos</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-check"></i> Información
+              corporativa</span
+            >
+          </div>
+        </div>
+
+        <div class="login-footer">
+          COMPROMISO <b>·</b> CONFIANZA <b>·</b> EXCELENCIA
+        </div>
+      </div>
+
+      <div class="login-form-side">
+        <div class="login-form-container">
+          <div class="mobile-brand">
+            <i class="fa-solid fa-car-side"></i>
+            <span>AUTOMÓVILES S.A.</span>
+          </div>
+
+          <span class="section-kicker">ACCESO AL SISTEMA</span>
+          <h2>Iniciar sesión</h2>
+          <p class="muted">Ingresa tus datos para acceder al portal interno.</p>
+
+          <form id="loginForm">
+            <label for="loginName">Nombre del trabajador</label>
+            <div class="input-wrap">
+              <i class="fa-regular fa-user"></i>
+              <input
+                id="loginName"
+                type="text"
+                placeholder="Escribe tu nombre"
+                maxlength="80"
+                autocomplete="name"
+                required
+              />
+            </div>
+
+            <label for="loginArea">Área de trabajo</label>
+            <div class="input-wrap">
+              <i class="fa-solid fa-building"></i>
+              <select id="loginArea" required>
+                <option value="">Selecciona tu área</option>
+                <option>Administración</option>
+                <option>Ventas</option>
+                <option>Recepción</option>
+                <option>Taller Mecánico</option>
+                <option>Repuestos</option>
+                <option>Logística</option>
+                <option>Talento Humano</option>
+                <option>Sistemas</option>
+              </select>
+            </div>
+
+            <p id="loginError" class="error-message" role="alert"></p>
+
+            <button type="submit" class="primary-button login-button">
+              Ingresar al portal
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </form>
+
+          <div class="security-note">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span
+              >Portal de demostración para la coordinación del personal.</span
+            >
+          </div>
+
+          <p class="copyright">
+            © <span id="loginYear"></span> Automóviles S.A.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div id="app" class="hidden">
+      <header class="topbar">
+        <a href="#" class="brand" data-page="inicio">
+          <div class="brand-emblem"><i class="fa-solid fa-car-side"></i></div>
+          <div>
+            <h1>AUTOMÓVILES S.A.</h1>
+            <span>Gestión y coordinación</span>
+          </div>
+        </a>
+
+        <div class="top-actions">
+          <button
+            id="notificationButton"
+            class="icon-button"
+            aria-label="Notificaciones"
+          >
+            <i class="fa-regular fa-bell"></i>
+          </button>
+
+          <div class="profile">
+            <button
+              id="profileMenuButton"
+              class="profile-button"
+              aria-expanded="false"
+            >
+              <span class="avatar"><i class="fa-regular fa-user"></i></span>
+              <span class="profile-info">
+                <strong id="profileName">Colaborador</strong>
+                <small id="profileRole">Personal interno</small>
+              </span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+
+            <div id="profileMenu" class="profile-menu hidden">
+              <button data-page="perfil">
+                <i class="fa-regular fa-id-card"></i> Mi perfil
+              </button>
+              <button id="logoutButton">
+                <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="app-layout">
+        <aside class="sidebar">
+          <div class="sidebar-label">MENÚ PRINCIPAL</div>
+          <nav class="side-navigation" aria-label="Navegación principal">
+            <button class="nav-link active" data-page="inicio">
+              <i class="fa-solid fa-house"></i> Inicio
+            </button>
+            <button class="nav-link" data-page="areas">
+              <i class="fa-solid fa-building"></i> Áreas de trabajo
+            </button>
+            <button class="nav-link" data-page="coordinacion">
+              <i class="fa-solid fa-arrows-spin"></i> Solicitudes
+            </button>
+            <button class="nav-link" data-page="empresa">
+              <i class="fa-regular fa-building"></i> La empresa
+            </button>
+            
+            <a href="documentos.html" class="nav-link">
+            <i class="fa-solid fa-handshake"></i>
+            Valores corporativos
+            </a>
+            <button class="nav-link" data-page="soporte">
+              <i class="fa-regular fa-envelope"></i> Contactos
+            </button>
+            
+          </nav>
+
+          <div class="sidebar-bottom">
+            <i class="fa-solid fa-car-rear"></i>
+            <h3>Un equipo, un mismo objetivo.</h3>
+            <p>Comunicación para brindar un mejor servicio.</p>
+          </div>
+        </aside>
+
+        <main class="main-content">
+          <section id="inicio" class="page active-page">
+            <div class="hero">
+              <div class="hero-content">
+                <span class="eyebrow">PORTAL INTERNO</span>
+                <h2>
+                  Bienvenido,<br /><span id="welcomeName">colaborador</span>
+                </h2>
+                <p>
+                  Organiza tus actividades y mantén una comunicación clara con
+                  las demás áreas.
+                </p>
+                <button class="primary-button" data-page="areas">
+                  Explorar áreas <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <div class="hero-tags">
+                  <span><i class="fa-solid fa-check"></i> Coordinación</span>
+                  <span><i class="fa-solid fa-check"></i> Atención</span>
+                  <span><i class="fa-solid fa-check"></i> Seguimiento</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="content-padding">
+              <div class="section-heading">
+                <div>
+                  <span class="section-kicker">ACCESO DIRECTO</span>
+                  <h2>¿A qué área deseas ingresar?</h2>
+                  <p>
+                    Selecciona un área para consultar sus funciones y
+                    herramientas.
+                  </p>
+                </div>
+                <span class="heading-icon"
+                  ><i class="fa-solid fa-layer-group"></i
+                ></span>
+              </div>
+
+              <div id="departmentGrid" class="department-grid"></div>
+
+              <div class="lower-grid">
+                <article class="info-card">
+                  <img
+                    class="panel-image"
+                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80"
+                    alt="Oficina de trabajo"
+                  />
+                  <span class="section-kicker">INFORMACIÓN CORPORATIVA</span>
+                  <h3>Conoce nuestra empresa</h3>
+                  <p>
+                    Consulta la información general, las sedes, las actividades
+                    y los datos de contacto de Automóviles S.A.
+                  </p>
+                  <button class="secondary-button" data-page="empresa">
+                    Ver información <i class="fa-solid fa-arrow-right"></i>
+                  </button>
+                </article>
+
+                <article class="info-card">
+                  <img
+                    class="panel-image"
+                    src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80"
+                    alt="Servicio automotriz"
+                  />
+                  <span class="section-kicker">TRABAJO EN EQUIPO</span>
+                  <h3>Coordina las solicitudes</h3>
+                  <p>
+                    Registra requerimientos y actualiza su estado para facilitar
+                    el seguimiento entre las áreas.
+                  </p>
+                  <button class="secondary-button" data-page="coordinacion">
+                    Ir a solicitudes <i class="fa-solid fa-arrow-right"></i>
+                  </button>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section id="areas" class="page">
+            <div class="page-banner">
+              <span class="section-kicker">ORGANIZACIÓN INTERNA</span>
+              <h2>Áreas de trabajo</h2>
+              <p>
+                Accede al espacio de cada equipo y consulta sus principales
+                funciones.
+              </p>
+            </div>
+            <div class="content-padding">
+              <div id="allDepartmentsGrid" class="department-grid"></div>
+            </div>
+          </section>
+
+          <section id="detalle-area" class="page">
+            <div class="page-banner">
+              <button class="back-button" data-page="areas">
+                <i class="fa-solid fa-arrow-left"></i> Volver a las áreas
+              </button>
+              <span class="section-kicker">ESPACIO DE TRABAJO</span>
+              <h2 id="departmentTitle">Área</h2>
+              <p id="departmentDescription"></p>
+            </div>
+            <div class="content-padding">
+              <div class="detail-layout">
+                <article class="detail-card">
+                  <div id="departmentLargeIcon" class="detail-icon">
+                    <i class="fa-solid fa-building"></i>
+                  </div>
+                  <h3>Funciones del área</h3>
+                  <p id="departmentLongDescription"></p>
+                  <ul class="check-list">
+                    <li>
+                      <i class="fa-solid fa-check-circle"></i> Mantener una
+                      comunicación clara.
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-check-circle"></i> Coordinar tareas
+                      con otras áreas.
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-check-circle"></i> Dar seguimiento a
+                      los requerimientos.
+                    </li>
+                  </ul>
+                  <button class="primary-button" data-page="coordinacion">
+                    Registrar solicitud <i class="fa-solid fa-arrow-right"></i>
+                  </button>
+                </article>
+
+                <article class="detail-card">
+                  <h3>Herramientas de coordinación</h3>
+                  <p>
+                    Utiliza estas opciones para comunicar necesidades y dar
+                    seguimiento a las actividades.
+                  </p>
+                  <button class="action-row" data-page="coordinacion">
+                    <i class="fa-solid fa-file-circle-plus"></i>
+                    <span
+                      ><strong>Nueva solicitud</strong><br /><small
+                        >Registrar un requerimiento</small
+                      ></span
+                    >
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </button>
+                  <button class="action-row" data-page="normas">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                    <span
+                      ><strong>Normas de atención</strong><br /><small
+                        >Consultar pautas de trabajo</small
+                      ></span
+                    >
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </button>
+                  <button class="action-row" data-page="soporte">
+                    <i class="fa-solid fa-headset"></i>
+                    <span
+                      ><strong>Contactos</strong><br /><small
+                        >Consultar canales de atención</small
+                      ></span
+                    >
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </button>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section id="empresa" class="page">
+            <div class="page-banner">
+              <span class="section-kicker">CONÓCENOS</span>
+              <h2>Información corporativa</h2>
+              <p>
+                Información general proporcionada para el proyecto del portal
+                interno.
+              </p>
+            </div>
+            <div class="content-padding">
+              <div class="company-hero">
+                <img
+                  src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=85"
+                  alt="Vehículo automotor"
+                />
+                <div>
+                  <span class="section-kicker">AUTOMÓVILES S.A.</span>
+                  <h3>Experiencia y servicio automotriz</h3>
+                  <p>
+                    Empresa dedicada a la venta de vehículos, servicios de
+                    posventa y comercialización de repuestos y accesorios. La
+                    información se presenta según los datos proporcionados para
+                    este proyecto y debe verificarse antes de su publicación
+                    oficial.
+                  </p>
+                </div>
+              </div>
+
+              <div class="company-facts">
+                <article class="fact-card">
+                  <i class="fa-solid fa-calendar-days"></i
+                  ><span>Fecha de fundación indicada</span
+                  ><strong>10 de septiembre de 1965</strong>
+                </article>
+                <article class="fact-card">
+                  <i class="fa-solid fa-id-card"></i
+                  ><span>RUC proporcionado</span><strong>20132834351</strong>
+                </article>
+                <article class="fact-card">
+                  <i class="fa-solid fa-phone"></i
+                  ><span>Central telefónica</span><strong>(064) 603434</strong>
+                </article>
+              </div>
+
+              <div class="detail-layout">
+                <article class="detail-card">
+                  <h3>
+                    <i class="fa-solid fa-location-dot red-icon"></i> Sedes y
+                    direcciones
+                  </h3>
+                  <div class="address-item">
+                    <strong>Casa matriz — El Tambo</strong>
+                    <p>Av. Mariscal Castilla 4800, Huancayo, Junín.</p>
+                  </div>
+                  <div class="address-item">
+                    <strong>Local — Huancayo</strong>
+                    <p>Calle Real 930, Huancayo, Junín.</p>
+                  </div>
+                  <div class="address-item">
+                    <strong>Local — Chilca</strong>
+                    <p>Calle Real 394, Chilca, Junín.</p>
+                  </div>
+                  <div class="address-item">
+                    <strong>Sucursal — Ayacucho</strong>
+                    <p>Av. del Ejército 750, Huamanga, Ayacucho.</p>
+                  </div>
+                </article>
+
+                <article class="detail-card">
+                  <h3>
+                    <i class="fa-solid fa-gears red-icon"></i> Actividades
+                    principales
+                  </h3>
+                  <ul class="check-list">
+                    <li>
+                      <i class="fa-solid fa-check-circle"></i> Venta de
+                      vehículos.
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-check-circle"></i> Mantenimiento y
+                      servicios de posventa.
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-check-circle"></i> Venta de
+                      repuestos y accesorios.
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-check-circle"></i> Recepción y
+                      preparación de vehículos.
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-check-circle"></i> Atención y
+                      orientación al cliente.
+                    </li>
+                  </ul>
+                  <p>
+                    <strong
+                      >Marcas mencionadas en la información recibida:</strong
+                    >
+                    Toyota, Hino y Daihatsu.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section id="normas" class="page">
+            <div class="page-banner">
+              <span class="section-kicker">BUENAS PRÁCTICAS</span>
+              <h2>Normas de atención y coordinación</h2>
+              <p>
+                Pautas propuestas para mejorar la comunicación y el servicio al
+                cliente.
+              </p>
+            </div>
+            <div class="content-padding">
+              <div class="notice-banner">
+                <i class="fa-solid fa-circle-info"></i>
+                <p>
+                  Estas pautas son propuestas para el prototipo y no representan
+                  un reglamento oficial aprobado por la empresa.
+                </p>
+              </div>
+
+              <h2>Nuestros valores corporativos</h2>
+              <p>
+                Valores establecidos en el Reglamento Interno de Trabajo de
+                Automóviles S.A. (página 5).
+              </p>
+
+              <div class="rules-grid">
+                <article class="rule-card">
+                  <span>01</span>
+                  <i class="fa-solid fa-shield-halved"></i>
+                  <h3>Integridad</h3>
+                  <p>
+                    Promovemos la ética, el respeto, la transparencia y la
+                    armonía entre colaboradores.
+                  </p>
+                </article>
+
+                <article class="rule-card">
+                  <span>02</span>
+                  <i class="fa-solid fa-arrows-rotate"></i>
+                  <h3>Adaptación</h3>
+                  <p>
+                    Nos adaptamos a los cambios y buscamos mejorar continuamente
+                    nuestros procesos.
+                  </p>
+                </article>
+
+                <article class="rule-card">
+                  <span>03</span>
+                  <i class="fa-solid fa-handshake"></i>
+                  <h3>Compromiso</h3>
+                  <p>
+                    Trabajamos para ofrecer soluciones integrales y acompañar el
+                    crecimiento de nuestros clientes.
+                  </p>
+                </article>
+
+                <article class="rule-card">
+                  <span>04</span>
+                  <i class="fa-solid fa-lightbulb"></i>
+                  <h3>Innovación</h3>
+                  <p>
+                    Buscamos nuevas ideas y soluciones para mejorar los
+                    servicios de la empresa.
+                  </p>
+                </article>
+
+                <article class="rule-card">
+                  <span>05</span>
+                  <i class="fa-solid fa-heart"></i>
+                  <h3>Vocación de servicio</h3>
+                  <p>
+                    Brindamos una atención cordial, proactiva y de calidad a
+                    nuestros clientes.
+                  </p>
+                </article>
+              </div>
+
+              <h2>Propuestas de coordinación y Shadowing</h2>
+              <p>
+                Medidas planteadas por nuestro grupo para mejorar la atención y
+                el trabajo entre áreas.
+              </p>
+            </div>
+          </section>
+
+          <section id="coordinacion" class="page">
+            <div class="page-banner">
+              <span class="section-kicker">GESTIÓN INTERNA</span>
+              <h2>Solicitudes de coordinación</h2>
+              <p>
+                Registra requerimientos y consulta su estado desde este
+                navegador.
+              </p>
+            </div>
+            <div class="content-padding">
+              <div class="detail-layout">
+                <article class="detail-card">
+                  <h3>
+                    <i class="fa-solid fa-file-circle-plus red-icon"></i> Nueva
+                    solicitud
+                  </h3>
+                  <form id="requestForm">
+                    <label for="requestTitle">Título del requerimiento</label>
+                    <input
+                      id="requestTitle"
+                      type="text"
+                      maxlength="100"
+                      placeholder="Ej. Coordinar entrega de vehículo"
+                      required
+                    />
+
+                    <label for="requestArea">Área responsable</label>
+                    <select id="requestArea" required>
+                      <option value="">Seleccionar área</option>
+                    </select>
+
+                    <label for="requestPriority">Prioridad</label>
+                    <select id="requestPriority" required>
+                      <option>Normal</option>
+                      <option>Alta</option>
+                      <option>Urgente</option>
+                    </select>
+
+                    <label for="requestDescription">Descripción</label>
+                    <textarea
+                      id="requestDescription"
+                      rows="4"
+                      maxlength="1000"
+                      placeholder="Describe el requerimiento y la coordinación necesaria."
+                      required
+                    ></textarea>
+
+                    <button class="primary-button form-button" type="submit">
+                      Registrar solicitud
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </form>
+                </article>
+
+                <article class="detail-card">
+                  <h3>
+                    <i class="fa-solid fa-list-check red-icon"></i> Solicitudes
+                    registradas
+                  </h3>
+                  <p>
+                    Actualiza el estado a medida que avance el requerimiento.
+                  </p>
+                  <div id="requestList" class="request-list"></div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section id="soporte" class="page">
+            <div class="page-banner">
+              <span class="section-kicker">COMUNICACIÓN</span>
+              <h2>Contactos de la empresa</h2>
+              <p>
+                Canales incluidos en la información proporcionada para el
+                proyecto.
+              </p>
+            </div>
+            <div class="content-padding">
+              <div class="detail-layout">
+                <article class="detail-card">
+                  <div class="detail-icon">
+                    <i class="fa-solid fa-phone"></i>
+                  </div>
+                  <h3>Central telefónica</h3>
+                  <p>Contacto general indicado en los datos recibidos.</p>
+                  <a class="contact-link" href="tel:+51064603434"
+                    >(064) 603434</a
+                  >
+                </article>
+                <article class="detail-card">
+                  <div class="detail-icon">
+                    <i class="fa-regular fa-envelope"></i>
+                  </div>
+                  <h3>Recepción y atención</h3>
+                  <p>
+                    Correo proporcionado para consultas de recepción y atención
+                    al cliente.
+                  </p>
+                  <a
+                    class="contact-link"
+                    href="mailto:recepcion@automovilestoyota.com.pe"
+                    >recepcion@automovilestoyota.com.pe</a
+                  >
+                </article>
+                <article class="detail-card">
+                  <div class="detail-icon">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                  </div>
+                  <h3>Soporte técnico posventa</h3>
+                  <p>
+                    Correo proporcionado para consultas técnicas posteriores al
+                    servicio.
+                  </p>
+                  <a
+                    class="contact-link"
+                    href="mailto:rmelgar@automovilestoyota.com.pe"
+                    >rmelgar@automovilestoyota.com.pe</a
+                  >
+                </article>
+                <article class="detail-card">
+                  <div class="detail-icon">
+                    <i class="fa-solid fa-building"></i>
+                  </div>
+                  <h3>Ubicación principal indicada</h3>
+                  <p>Av. Mariscal Castilla 4800, El Tambo, Huancayo, Junín.</p>
+                </article>
+              </div>
+              <div class="notice-banner">
+                <i class="fa-solid fa-circle-info"></i>
+                <p>
+                  Confirma la vigencia de las direcciones, los teléfonos y los
+                  correos antes de utilizarlos como canales oficiales.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="perfil" class="page">
+            <div class="page-banner">
+              <span class="section-kicker">CUENTA DEL TRABAJADOR</span>
+              <h2>Mi perfil</h2>
+              <p>Información de la sesión actual.</p>
+            </div>
+            <div class="content-padding">
+              <article class="detail-card profile-card">
+                <div class="detail-icon">
+                  <i class="fa-regular fa-user"></i>
+                </div>
+                <h3 id="profilePageName">Colaborador</h3>
+                <p>
+                  Área de trabajo:
+                  <strong id="profilePageRole">Personal interno</strong>
+                </p>
+                <p>
+                  Esta demostración utiliza el nombre y el área seleccionados en
+                  el formulario de ingreso.
+                </p>
+                <button id="logoutProfileButton" class="primary-button">
+                  Cerrar sesión <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+              </article>
+            </div>
+          </section>
+        </main>
+
+        <aside class="right-sidebar">
+          <article class="right-card">
+            <div class="right-card-title">
+              <i class="fa-solid fa-bullseye"></i>
+              <h3>Objetivo del portal</h3>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=700&q=80"
+              alt="Taller automotriz"
+            />
+            <p>
+              Facilitar la coordinación entre áreas para reducir confusiones,
+              mejorar el seguimiento y ofrecer una atención más organizada.
+            </p>
+            <button
+              class="secondary-button full-width"
+              data-page="coordinacion"
+            >
+              Crear solicitud
+            </button>
+          </article>
+
+          <article class="right-card">
+            <div class="right-card-title">
+              <i class="fa-solid fa-building"></i>
+              <h3>Acceso empresarial</h3>
+            </div>
+            <button class="action-row" data-page="empresa">
+              <i class="fa-regular fa-building"></i>
+              <span
+                ><strong>La empresa</strong><br /><small
+                  >Datos y sedes</small
+                ></span
+              >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <button class="action-row" data-page="normas">
+              <i class="fa-solid fa-clipboard-list"></i>
+              <span
+                ><strong>Normas de atención</strong><br /><small
+                  >Buenas prácticas</small
+                ></span
+              >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </article>
+
+          <article class="contact-card">
+            <i class="fa-regular fa-envelope contact-main-icon"></i>
+            <h3>¿Necesitas comunicarte?</h3>
+            <p>Consulta los canales de contacto disponibles en el proyecto.</p>
+            <button class="light-button" data-page="soporte">
+              Ver contactos <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </article>
+        </aside>
+      </div>
+
+      <footer class="footer">
+        <span
+          >© <span id="footerYear"></span> Automóviles S.A. · Portal de
+          demostración</span
+        >
+        <span>Gestión <b>·</b> Coordinación <b>·</b> Servicio</span>
+      </footer>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

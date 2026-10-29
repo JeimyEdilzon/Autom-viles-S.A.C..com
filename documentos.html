@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#b5121b">
+    <title>Valores y Reglamentos | Automóviles S.A.C.</title>
+    <link rel="stylesheet" href="documentos.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<header class="barra">
+    <a href="index.html" class="logo">
+        <span class="logo-icon"><i class="fa-solid fa-car-side"></i></span>
+        <span>Automóviles <b>S.A.C.</b></span>
+    </a>
+
+    
+<button type="button" class="volver" onclick="volverAlMenu()">
+    <i class="fa-solid fa-arrow-left"></i>
+    Volver al menú principal
+</button>
+
+</header>
+
+<section class="portada">
+    <div class="portada-contenido">
+        <p class="etiqueta">AUTOMÓVILES S.A.C.</p>
+        <h1>Valores y<br><span>Reglamentos</span></h1>
+        <p>
+            Conoce los principios corporativos y las normas que orientan
+            nuestro trabajo, la convivencia y la atención al cliente.
+        </p>
+        <a href="#valores" class="boton-principal">Conocer más</a>
+    </div>
+</section>
+
+<main class="contenedor">
+
+    <section id="valores" class="seccion">
+        <div class="encabezado">
+            <p class="etiqueta">NUESTRA IDENTIDAD</p>
+            <h2>Valores corporativos</h2>
+            <p>Selecciona un valor para consultar su descripción.</p>
+        </div>
+
+        <div id="listaValores" class="valores-grid"></div>
+    </section>
+
+    <section id="reglamentos" class="seccion">
+        <div class="encabezado">
+            <p class="etiqueta">NORMAS INTERNAS</p>
+            <h2>Reglamento interno de trabajo</h2>
+            <p>
+                Consulta las disposiciones por tema y utiliza el buscador
+                para encontrar artículos específicos.
+            </p>
+        </div>
+
+        <div class="buscador">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+                type="search"
+                id="buscarReglamento"
+                placeholder="Buscar artículo, palabra o tema..."
+                aria-label="Buscar en los reglamentos">
+        </div>
+
+        <div id="listaReglamentos" class="reglamentos-lista"></div>
+        <p id="sinResultados" class="sin-resultados" hidden>
+            No se encontraron artículos relacionados con la búsqueda.
+        </p>
+    </section>
+
+</main>
+
+<footer class="pie">
+    <p><strong>Automóviles S.A.C.</strong></p>
+    <p>Comprometidos con la integridad, la calidad y el servicio.</p>
+</footer>
+
+<script src="documentos.js"></script>
+</body>
+</html>
